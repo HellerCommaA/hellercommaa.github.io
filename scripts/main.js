@@ -29,6 +29,7 @@ jQuery(() => {
 
     clearAllBtn.on('click', (e) => {
         e.preventDefault();
+        inGameName.val('');
         item.val('');
         alertArea.removeClass('show');
         items.html('');
@@ -36,6 +37,12 @@ jQuery(() => {
         wantForItem.val('');
         generatedArea.html('');
         generatedSection.hide();
+        localforage.setItem(NAME_KEY, '', (err) => {
+            // pass
+        });
+        localforage.setItem(ITEM_KEY, [], (err) => {
+            // pass
+        });
     });
 
     alertArea.on('click', () => { alertArea.removeClass('show'); });
@@ -50,6 +57,7 @@ jQuery(() => {
                 localforage.setItem(NAME_KEY, '', (err) => {
                     // pass
                 });
+                return;
             }
             inGameName.val(val);
         });
@@ -61,11 +69,12 @@ jQuery(() => {
                 localforage.setItem(ITEM_KEY, [], (err) => {
                     // pass
                 });
+                return;
             } 
             for(let i = 0; i < val.length; i++) {
                 loadItem(val[i]);
             }
-        })
+        });
     }
 
     function loadItem(xData) {
@@ -88,6 +97,7 @@ jQuery(() => {
             localforage.setItem(ITEM_KEY, items, (err) => {
                 if (err) {
                     console.error('unable to save new copy of items during save');
+                    return;
                 }
             })
         });
