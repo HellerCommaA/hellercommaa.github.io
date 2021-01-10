@@ -46,7 +46,7 @@ jQuery(() => {
 
     function getName() {
         localforage.getItem(NAME_KEY, (err, val) => {
-            if (err) {
+            if (err || val == null) {
                 localforage.setItem(NAME_KEY, '', (err) => {
                     // pass
                 });
@@ -57,12 +57,11 @@ jQuery(() => {
 
     function getItems() {
         localforage.getItem(ITEM_KEY, (err, val) => {
-            if (err) {
+            if (err || val == null) {
                 localforage.setItem(ITEM_KEY, [], (err) => {
                     // pass
-                    return;
                 });
-            }
+            } 
             for(let i = 0; i < val.length; i++) {
                 loadItem(val[i]);
             }
