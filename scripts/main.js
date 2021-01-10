@@ -60,6 +60,7 @@ jQuery(() => {
             if (err) {
                 localforage.setItem(ITEM_KEY, [], (err) => {
                     // pass
+                    return;
                 });
             }
             for(let i = 0; i < val.length; i++) {
