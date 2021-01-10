@@ -10,6 +10,27 @@ jQuery(() => {
     const generatedSection = $('#generatedSection'); // section container
     const alertArea = $('#alertArea'); // general alert area
     const wantForItem = $('#wantForItem'); // what the want is for this given item
+    const selectAllText = $('#selectAllText'); // select all text in the generated box
+
+
+    // https://stackoverflow.com/a/1173319
+    function selectText(containerid) {
+        if (document.selection) { // IE
+            var range = document.body.createTextRange();
+            range.moveToElementText(document.getElementById(containerid));
+            range.select();
+        } else if (window.getSelection) {
+            var range = document.createRange();
+            range.selectNode(document.getElementById(containerid));
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+        }
+    }
+
+    selectAllText.on('click', (e) => {
+        e.preventDefault();
+        selectText('generatedText');
+    });
 
     let saveJson = []; // TODO: implement save functionality
 
