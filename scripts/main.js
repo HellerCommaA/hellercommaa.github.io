@@ -73,7 +73,7 @@ jQuery(() => {
         let str = '';
         str += 'Contact here';
         if (inGameName.val() != '') {
-            str += 'or /w ' + inGameName.val() + ' in game.';
+            str += ' or /w ' + inGameName.val() + ' in game.';
         }
         str += '\n';
         str += oldHtml;
