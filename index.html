@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Trade Manager</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Trade Manager</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="mt-5">Discord Trade Text Generator</h1>
+        <p class="lead">It's dead simple.</p>
+        <ul class="list-group text-left">
+          <li>Hover over your item in game.</li>
+          <li>Press Ctrl+C.</li>
+          <li>Paste in `Paste Item Here` box.</li>
+          <li>Enter your want for this item.</li>
+          <li>Click `Add Item`.</li>
+          <li>Repeat till you have done all your items for trade.</li>
+          <li>Paste the generated text into the Discord trade channels!</li>
+          <li><i>A small link to this website is automatically included, please don't remove.</i></li>
+        </ul>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-12 mt-3'>
+        <div id='alertArea' class="alert fade alert-danger" role="alert">&nbsp;</div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-8 text-left'>
+        <form>
+          <div class="form-group">
+            <label for="inGameName">In Game Name</label>
+            <input class="form-control" id="inGameName" placeholder="Senpai">
+          </div>
+          <div class='form-group'>
+            <label for='wantForItem'>Want</label>
+            <input class='form-control' id='wantForItem' placeholder='0.5 hr (optional)' />
+          </div>
+          <div class="form-group">
+            <label for="item">Paste Item Here</label>
+            <textarea class="form-control" id="itemTextArea" rows="3"></textarea>
+          </div>
+          <button id='addItemBtn' class='btn bnt-info'>Add Item</button>
+          <button id='clearBtn' class='btn btn-danger'>Clear All</button>
+          <button id='generateBtn' class='btn btn-success'>Generate</button>
+        </form>
+      </div>
+      <div class='col-md-4 text-left'>
+        <p class='lead'>
+          Items:
+        </p>
+        <ul class='list-group' id='itemsOutArea'>
+        </ul>
+      </div>
+    </div>
+    <div id='generatedSection' style='display:none' class='row mt-5'>
+      <div class='col-md-12'>
+        <h3 class='mt-5'>Generated text</h3>
+        <button id='selectAllText' class='btn btn-success'>Select all</button>
+        <pre class='mt-1' id='generatedText'
+          style='background-color: lightgray; max-height: 300px; min-height: 100px; overflow: auto; width: 100%'></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <script src="/scripts/item.js"></script>
+
+  <script src="/scripts/main.js"></script>
+
+</body>
+
+</html>
